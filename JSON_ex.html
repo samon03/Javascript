@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p id="demo"></p>
+    <script type="text/javascript">
+    	
+
+    	var text = '{"empl":[' + 
+    	'{"fname":"Shiliya", "lname":"Samon"},' +
+    	'{"fname":"Samsun", "lname":"Nahar"},' +
+    	'{"fname":"Humayun", "lname":"Badsha"}]}';
+
+         var obj = JSON.parse(text);
+         document.getElementById("demo").innerHTML = 
+         obj.empl[1].fname + " " + obj.empl[1].lname;
+    </script>
+</body>
+</html>
