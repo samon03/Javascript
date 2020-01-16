@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+       	class car 
+		{
+			constructor(brand)
+			{
+                this.carname = brand;
+			}
+			get cname()
+			{
+				return this.carname;
+			}
+			set cname(x)
+			{
+                this.carname = x;
+			}
+		}
+        mycar = new car("Ford");
+        document.write(mycar.cname);
+	
+	</script>
+</body>
+</html>

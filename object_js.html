@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Object Of Javascript</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		document.write("Objects are mutable examples <br>");
+
+		var person = 
+		{
+			fname : "John", 
+			lname : "Doe", 
+			age : 20, 
+			altername : "Clay",
+			get fullName() 
+			{
+				return this.fname + " " + this.lname;
+			}
+		};
+		var x = person;
+		x.age = 30;
+		document.write(person.fname + " " + " is " + person.age + " years old.");
+		delete person.altername;
+		document.write("<br> Altername is " + person.altername);
+		person.name = function()
+		{
+			return this.fname + " " + this.lname;
+		}
+		document.write("<br> Person name as a function : " + person.name());
+		document.write("<br> Using getter to get the fullname : " + person.fullName);
+
+		document.write("<br> Using Object.defineProperty() for getter/setter : ");
+		var obj = { counter : 0};
+		Object.defineProperty(obj, "reset", {get : function(){this.counter = 0;}});
+		Object.defineProperty(obj, "increment", {get : function(){ this.counter++;}});
+		Object.defineProperty(obj, "decrement", {get : function(){this.counter--;}});
+		Object.defineProperty(obj, "add", {set : function(value){this.counter += value;}});
+		Object.defineProperty(obj, "sub", {set : function(value){this.counter -= value;}});
+
+		obj.increment;
+		obj.add = 5;
+		obj.sub = 2;
+		obj.decrement;
+		obj.add = 7;
+		document.write("<br>" + obj.counter);
+
+	</script>
+</body>
+</html>

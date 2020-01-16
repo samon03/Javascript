@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Form</title>
+</head>
+<body>
+	
+   <form name="myform" action="form_js.html" method="post" onsubmit="return validitation();">
+   	  Name : <input type="text" name="fname">
+   	  <input type="submit" value="Submit">
+   </form>
+   <br>
+   <h4>Please enter value from 1 to 20</h4>
+   <input type="text" name="numInput" id="numInput">
+   <input type="submit" value="Check" onclick="checkNum();">
+   <br>
+   <p id="demo"></p>
+   <h4>Please select a number between (100 - 200) else there with be expection</h4>
+   <input type="number" name="cnum" id="cnum" min="100" max="200" required>
+   <input type="submit" value="Ok" onclick="selectNum()">
+   <p id="snum"></p>
+
+   <script type="text/javascript">
+   	  function validitation()
+   	  {
+   	  	  var x = document.forms["myform"]["fname"].value;
+   	  	  if(x == "")
+   	  	  {
+              alert("Please enter name!");
+              return false;
+   	  	  }
+   	  	  else
+   	  	  {
+   	  	  	  alert("Hello, " + x);
+   	  	  	  return true;
+   	  	  }
+   	  }
+   	  function checkNum()
+   	  {
+          var x = document.getElementById("numInput").value;
+          if (isNaN(x) || x < 1 || x > 20) 
+          {
+              document.getElementById("demo").innerHTML = "Out of range";
+          }
+          else
+          {
+          	  document.getElementById("demo").innerHTML = "Number is " + x;
+          }
+   	  }
+   	  function selectNum()
+   	  {
+   	  	  var getnum, text;
+   	  	  getnum = document.getElementById("cnum");
+   	  /*  if (!getnum.checkValidity())     // validity function
+   	  	  {
+              text = getnum.validitationMessage;  // validation message 
+   	  	  }
+   	  	  else  */
+   	  	  if(getnum.validity.rangeOverflow)
+   	  	  {
+               text = "Range Overflow";
+   	  	  }
+   	  	  else if(getnum.validity.rangeUnderflow)
+   	  	  {
+   	  	  	   text = "Range Underflow"
+   	  	  }
+   	  	  else
+   	  	  {
+   	  	  	  text = "Input is Ok";
+   	  	  }
+   	  	  document.getElementById("snum").innerHTML = text;
+   	  }
+   </script>
+
+
+   
+</body>
+</html>

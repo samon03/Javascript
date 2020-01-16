@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions Example </title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    	document.write("Function as arrow : <br>");
+    	var z = (x, y) => x * y;
+        document.write(z(4, 5));
+
+        document.write("<br> Function to sum all input values using arguments object : <br>");
+        function Findsum()
+        {
+             var sum = 0;
+             for (var i = 0; i < arguments.length; i++) 
+             {
+             	 sum += arguments[i];
+             }
+             return sum;
+        }
+        printsum = Findsum(2, 4 ,4, 6, 8);
+        document.write(printsum);
+
+        // With the call() method, you can write a method that can be used on different objects.
+        document.write("<br> With the call() method, you can write a method that can be used on different objects. <br>");
+        var person = 
+        { 
+        	fullname : function()
+        	{
+               return this.firstname + " " + this.lastname;
+        	}
+        };
+        var person1 = 
+        {
+        	firstname : "Shiliya",
+        	lastname : "Samon"
+        };
+        var person2 = 
+        {
+        	firstname : "Prince",
+        	lastname : "Emon"
+        };
+        document.write(person.fullname.call(person1));
+        document.write("<br>" + person.fullname.call(person2));
+        
+
+
+    </script>
+</body>
+</html>
