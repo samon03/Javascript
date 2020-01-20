@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+</head>
+<body>
+	<h3>Ajax</h3>
+    <button onclick="gotoAjax();">Click</button>
+    <p id="demo"></p>
+    <a href="ajax2.html">Next Page</a>
+    <script>
+    	function gotoAjax()
+    	{
+    		var req = new XMLHttpRequest();
+
+    		req.onreadystatechange = function()
+    		{
+    			if (this.readyState == 4 && this.status == 200) 
+    			{
+                     document.getElementById("demo").innerHTML = req.responseText;   
+    			}
+    		}
+    		req.open("GET", "file.txt", true);
+    		req.send();
+    	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+*{
+	box-sizing: border-box;
+}
+body
+{
+	background-image: url("https://www.publicdomainpictures.net/pictures/120000/velka/chevron-pattern-background.jpg");
+}
+
+/*ul
+{
+	list-style-type: none;
+	background-color: #555;
+	overflow: hidden;
+	margin: 0;
+    padding: 0;
+	text-align: center;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+
+}
+li
+{
+	float: left;
+	border-right: 1px solid grey;
+} */
+.nav {
+  background-color: #555; 
+  list-style-type: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+.nav li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+}
+
+li a
+{
+	text-decoration: none;
+	/*display: block;*/
+    color: white;
+    padding: 14px 16px;
+    
+}
+li a:hover
+{
+	background-color: #4CAF50;
+}
+p
+{
+	font-size: 20px;
+}
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+.danger
+{
+	background-color: #ffcc66;
+	width: 200px; 
+	padding: 5px; 
+	margin: 2px; 
+	font-size: 20px;
+	border: none;
+	display: inline-block;
+	border-radius: 8px;
+}
+td>input /*child of td */
+{
+	padding: 5px;
+}
+input:hover
+{
+	background-color: #b3ffd9;
+}
+td p
+{
+	display: none;
+	color: white;
+}
+td:hover p
+{
+	display: block;
+}

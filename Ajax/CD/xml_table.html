@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>XML Table</title>
+	<style type="text/css">
+		table, th, td
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+
+   <button type="button" onclick="gotoAjax();">Get CD Value</button>
+   <table id="table"></table>
+
+   <script type="text/javascript">
+   	   function gotoAjax() 
+   	   {
+   	   	    var req = new XMLHttpRequest();
+   	   	    req.onreadystatechange = function()
+   	   	    {
+   	   	    	if (this.readyState == 4 && this.status == 200) 
+   	   	    	{
+   	   	    		myFunction(this);
+   	   	    	}
+   	   	    }
+   	   	    req.open("GET", "cd_catalog.xml", true);
+   	   	    req.send();
+   	   }
+
+   	   function myFunction(xml)
+   	   {
+           var xmlDoc = xml.responseXML;  
+           var x = xmlDoc.getElementsByTagName("CD");
+           var table = "<tr><th>Company</th><th>Country</th></tr>";
+           for (var i = 0; i < x.length; i++) 
+           {
+               table += "<tr><td>" + 
+           	   x[i].getElementsByTagName("COMPANY")[0].childNodes[0].nodeValue + 
+           	   "</td><td>" +
+           	   x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue +
+           	   "</td></tr>";
+
+           }
+           document.getElementById("table").innerHTML = table;
+   	   }
+   </script>
+</body>
+</html>
