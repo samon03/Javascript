@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<input type="text" id="search" placeholder="Search a value .. ">
+   <div id="did">
+   	  <p>I am a paragraph</p>
+   	  <p>Another paragraph</p>
+   	  <button>I am a button</button>
+   	  <button>Another button</button>
+   	  <p>Hello World</p>
+   </div>
+   <script type="text/javascript">
+   	   $(document).ready(function()
+   	   {
+           $("#search").on("keyup", function(){
+           	   var value = $(this).val().toLowerCase();
+           	   $("#did *").filter(function(){
+           	   	  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+           	   });
+           });
+
+   	   });
+   </script>
+</body>
+</html>

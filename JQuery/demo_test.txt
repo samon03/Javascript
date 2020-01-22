@@ -1,0 +1,1 @@
+The second parameter is a callback function. The first callback parameter holds the content of the page requested, and the second callback parameter holds the status of the request.

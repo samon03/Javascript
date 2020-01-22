@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<style type="text/css">
+		#panel, #flip {
+			padding: 5px;
+			text-align: center;
+			background-color: #afc;
+			border: solid 1px #c3c3c3;
+		}
+
+		#panel {
+			padding: 50px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<p id="id1">Samon</p>
+	<p id="id2">Emon</p>
+	<p id="id3">Shiliya</p>
+
+	<p id="demo"></p>
+	<span>Hola!</span>
+	<br>
+	<div id="di" style="padding: 15px; background-color: #acf;"></div>
+	<br>
+	<button id="hide">Hide</button>
+	<button id="show">Show</button>
+
+	<div id="flip">Click to slide the panel down or up</div>
+	<div id="panel">Hello world!</div>
+
+	<button id="getBtn">GET value from the asp file</button>
+	<button id="postBtn">POST value to the asp file</button>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var myElement = $("#id1");
+			$("#demo").text("Hello! " + myElement[0].innerHTML);
+			// disapper p 
+			$("p").click(function(){
+				$(this).hide();
+			});
+            // dblclick()
+            $("span").dblclick(function(){
+            	$(this).css("color", "red");
+            });
+            // multipe function using on 
+            $("p").on({
+            	mouseenter: function(){
+            		$(this).css("background-color", "red");
+            	},
+            	mouseleave: function(){
+            		$(this).css("background-color", "yellow");
+            	}
+            });
+            // show hide 
+            $("#hide").click(function(){
+            	$("#di").hide(1000, function(){
+            		alert("Hidden");
+            	});
+            });
+            $("#show").click(function(){
+            	$("#di").show(1000);
+            });
+
+            // slideToggole()
+            $("#flip").click(function(){
+            	$("#panel").slideToggle("slow");
+            });
+            // $.get()
+            $("#getBtn").click(function(){
+            	$.get("demo_test.txt", function(data, status)
+            	{
+            		alert("Data is : " + data + "\nStatus : "+ status);
+            	});
+            });
+
+            $("#postBtn").click(function(){
+            	$.get("post_txt.asp", 
+            	{ 
+            		name: "Samon", 
+            		city: "Dhaka"
+            	}, 
+            	function(data, status){
+            		alert(data + "\n" + status);
+            	});
+            });
+    });
+
+</script>
+</body>
+</html>

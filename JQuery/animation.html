@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation JQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		.block
+		{
+			background: #98bf21;
+			height: 50px;
+			width: 50px;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<button class="left">Left</button>
+	<button class="right">right</button>
+	<br>
+	<div class="block"></div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".left").click(function(){
+				$(".block").animate({left: '300px'});
+			});
+		});
+	</script>
+</body>
+</html>
